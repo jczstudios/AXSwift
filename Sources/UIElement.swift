@@ -46,8 +46,11 @@ open class UIElement {
     /// The state and role of the AXUIElement is not checked.
     public required init(_ nativeElement: AXUIElement) {
         // Since we are dealing with low-level C APIs, it never hurts to double check types.
-        assert(CFGetTypeID(nativeElement) == AXUIElementGetTypeID(),
-               "nativeElement is not an AXUIElement")
+        
+        
+        // TODO: Fix this check since it does not work with Swift UI elements
+//        assert(CFGetTypeID(nativeElement) == AXUIElementGetTypeID(),
+//               "nativeElement is not an AXUIElement")
 
         element = nativeElement
     }
